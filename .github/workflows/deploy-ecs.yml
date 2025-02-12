@@ -20,6 +20,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} '
           cd ~/fastapi-book-project &&
           git pull origin main &&
+          python3 -m venv venv &&
           source venv/bin/activate &&
           pip install -r requirements.txt &&
           sudo systemctl restart fastapi
