@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI
 
 on:
   pull_request:
@@ -9,18 +9,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
+      - name: checkout code
+        uses: actions/checkout@v2
+    
+    
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+         python-version: '3.9'
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Run Tests
+      
+      - name: Run tests
         run: |
           pytest
+
